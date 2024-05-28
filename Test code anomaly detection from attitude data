@@ -1,0 +1,57 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import zscore
+from scipy.spatial.transform import Rotation as R
+
+# attitude data
+data = pd.read_csv('ICESAT_ATTITUDE_2010196.txt.txt', delim_whitespace=True, header=None, names=['time', 'q0', 'q1', 'q2', 'q3'])
+
+# Normalize quaternions
+data[['q0', 'q1', 'q2', 'q3']] = data[['q0', 'q1', 'q2', 'q3']].apply(lambda row: row / np.linalg.norm(row), axis=1)
+
+# quaternions to Euler angles
+r = R.from_quat(data[['q0', 'q1', 'q2', 'q3']].to_numpy())
+euler_angles = r.as_euler('xyz', degrees=True)
+data['roll'] = euler_angles[:, 0]
+data['pitch'] = euler_angles[:, 1]
+data['yaw'] = euler_angles[:, 2]
+
+# Z-score to find anomalies
+data['roll_zscore'] = zscore(data['roll'])
+data['pitch_zscore'] = zscore(data['pitch'])
+data['yaw_zscore'] = zscore(data['yaw'])
+
+# threshold for anomaly detection
+threshold = 3
+
+# Identifying anomalies
+anomalies_roll = data[np.abs(data['roll_zscore']) > threshold]
+anomalies_pitch = data[np.abs(data['pitch_zscore']) > threshold]
+anomalies_yaw = data[np.abs(data['yaw_zscore']) > threshold]
+
+# Plot
+plt.figure(figsize=(14, 7))
+plt.subplot(311)
+plt.plot(data['time'], data['roll'], label='Roll')
+plt.scatter(anomalies_roll['time'], anomalies_roll['roll'], color='red', label='Anomalies')
+plt.xlabel('Time')
+plt.ylabel('Roll (degrees)')
+plt.legend()
+
+plt.subplot(312)
+plt.plot(data['time'], data['pitch'], label='Pitch')
+plt.scatter(anomalies_pitch['time'], anomalies_pitch['pitch'], color='red', label='Anomalies')
+plt.xlabel('Time')
+plt.ylabel('Pitch (degrees)')
+plt.legend()
+
+plt.subplot(313)
+plt.plot(data['time'], data['yaw'], label='Yaw')
+plt.scatter(anomalies_yaw['time'], anomalies_yaw['yaw'], color='red', label='Anomalies')
+plt.xlabel('Time')
+plt.ylabel('Yaw (degrees)')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
