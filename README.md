@@ -29,14 +29,12 @@ In order to have an autonomous telemetry anomaly detection and mitigation block 
   - Develop ML algorithm networks for creating intelligent satellites capable of sharing insights and coordinating actions autonomously.
   - This concept is currently on hold, with a focus on literature review.
   - Model development will be considered if preliminary results meet ECSS Standards.
-  - 
 ![image](https://github.com/HEMZZ610/Autonomous-Space-Systems/assets/70131462/abc8d1ce-b4c3-4edd-ac10-a9d76ef9b152)
 
-
-## Git Hub Repository Structure
-* Data - Raw Data Set
-* Paper - Compressed PDF of imp paper
-* Demo - code for demonstration
-* Explore - Deleted outdated models and diagrams
-* Save - Finish uploading plots and data
+## Git Hub Repository Nomenclature
+* Data - Data_mission_datatype
+* Paper -
+* Demo - 
+* Explore - 
+* Save - 
 
