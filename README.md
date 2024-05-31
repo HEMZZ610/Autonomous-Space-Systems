@@ -4,17 +4,11 @@ In order to have an autonomous telemetry anomaly detection and mitigation block 
 
 ## Key Components 
 
-### On-board Processing Unit:
-  - The ML algorithm is trained assuming the use of a dedicated processing unit such as FPGA, GPU, or specialized ASIC.
-  - This unit will handle data directly from the satellite’s sensors.
-  - A trade-off analysis will be conducted to evaluate the efficiency, cost, and reliability of different processing units.
-  - The aim is to optimize for limited power and computational resources.
-
 ### Current Plan for ML Model Training:
   - Pre-train the machine learning model using initial satellite data from real missions.
   - Substantially use NASA’s Archive of Space Geodesy Data for pre-training.
-  - Evaluate several machine learning models on these datasets based on various performance factors.
-  - Models perform functions such as filtering and clustering before the anomaly detection procedure.
+  - Evaluate several machine learning models on these datasets based on various performance factors such as computational time, memory used, power, system reliability.
+![image](https://github.com/HEMZZ610/Autonomous-Space-Systems/assets/70131462/abc8d1ce-b4c3-4edd-ac10-a9d76ef9b152)
 
 ### Anomaly Detection and Mitigation:
   - If a fault/anomaly is detected, a mitigation loop is triggered based on pre-trained models.
@@ -29,7 +23,6 @@ In order to have an autonomous telemetry anomaly detection and mitigation block 
   - Develop ML algorithm networks for creating intelligent satellites capable of sharing insights and coordinating actions autonomously.
   - This concept is currently on hold, with a focus on literature review.
   - Model development will be considered if preliminary results meet ECSS Standards.
-![image](https://github.com/HEMZZ610/Autonomous-Space-Systems/assets/70131462/abc8d1ce-b4c3-4edd-ac10-a9d76ef9b152)
 
 ## Git Hub Repository Nomenclature
 * Data = Data_mission_datatype
