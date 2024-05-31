@@ -8,7 +8,7 @@ In order to have an autonomous telemetry anomaly detection and mitigation block 
   - Pre-train the machine learning model using initial satellite data from real missions.
   - Substantially use NASA’s Archive of Space Geodesy Data for pre-training.
   - Evaluate several machine learning models on these datasets based on various performance factors such as computational time, memory used, power, system reliability.
-  - 
+
 ![image](https://github.com/HEMZZ610/Autonomous-Space-Systems/assets/70131462/abc8d1ce-b4c3-4edd-ac10-a9d76ef9b152)
 
 ### Anomaly Detection and Mitigation:
