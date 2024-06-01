@@ -25,10 +25,10 @@ In order to have an autonomous telemetry anomaly detection and mitigation block 
   - This concept is currently on hold, with a focus on literature review.
   - Model development will be considered if preliminary results meet ECSS Standards.
 
-## Git Hub Repository Nomenclature
+## Git Hub Repository Nomenclature & Func
 * Data = Data_mission_datatype
-* Paper =
-* Demo = 
-* Explore = 
-* Save = 
+* Paper = imp paper directly related to the code
+* Demo = alogorithm functioning analysis
+* Explore = delete/outadated code & diagrams
+* Save = uploaded plots and data
 
